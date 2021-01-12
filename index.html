@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zaryab</title>
+</head>
+
+<body>
+    <button onclick="getfunc()">get</button>
+    <button onclick="postfunc()">post</button>
+
+    <h4 id="awer"></h4>
+    <script>
+
+        getfunc = () => {
+            const Http = new XMLHttpRequest();
+            const url = "http://192.168.50.210:3000/bulb";
+            Http.open("GET", url);
+            HTTP.setRequestHeader("Content-Type", "application/json");
+            HTTP.send(JSON.stringify({ name: "zaryab", time: "2pm" }));
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText);
+                document.write();
+            }
+        }
+
+
+
+
+
+
+        postfunc = () => {
+            const Http = new XMLHttpRequest();
+            const url = "http://192.168.50.210:3000/bulb";
+            Http.open("POST", url);
+            Http.setRequestHeader("Content-Type", "application/json");
+            Http.send(JSON.stringify({ name: "" , time: "" }));
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText);
+                document.getElementById("awer").innerHTML = Http.responseText;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
